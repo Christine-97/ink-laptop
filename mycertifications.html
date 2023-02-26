@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<title>Christine's Profile</title>
+<link rel="shortcut icon" href="https://img.icons8.com/officexs/30/000000/user-menu-female.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="main.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://kit.fontawesome.com/698a14e25d.js" crossorigin="anonymous"></script>
+<style>
+body,h1,h2,h3,h4,h5,h6,div {font-family: "Montserrat", sans-serif; font-size:small; color: white;
+}
+
+.w3-container, .w3-panel {
+    padding:0.01em 10px;
+  }
+
+/* RESUME BUTTON */
+/* .w3-text-grey, .w3-hover-text-grey:hover, .w3-text-gray, .w3-hover-text-gray:hover {
+    color: #3873b3!important;
+} */
+.resume-button{
+    color: #000!important;
+    background-color: #f7ba5b!important;
+}
+
+.w3-button:hover {
+    color: #000!important;
+    background-color: #0062cc3b!important;
+}
+/*  END OF RESUME BUTTON */
+
+.button-container {
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  float:left;
+}
+
+
+.button-text-container {
+  order:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  white-space:nowrap; /*Keep text always one line*/
+  overflow:hidden;
+  width:0;
+  transition: width 1s;
+}
+
+.button-icon-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-icon-container:hover + .button-text-container {
+  width:200px;
+}
+
+.w3-bottombar{
+  border-bottom: 2px solid #f7ba5b!important;
+}
+
+.w3-text-teal, .w3-hover-text-teal:hover {
+    color:  #33ccff!important;
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 280px;
+  height: 300px;
+  border: #f1f1f1;
+  perspective: 1000px;
+  font-size: 1em;
+  border-radius: 6px;
+}
+
+.flip-box-inner {
+  position: relative;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+  border-radius: 6px;
+}
+
+.flip-box-front, .flip-box-back {
+  /* width: 290px;
+  height: 350px; */
+  position: absolute;
+  border-radius: 6px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  width: 265px;
+  height: 285px;
+  background-color :white;
+  color: black;
+}
+
+.flip-box-back {
+  width: 265px;
+  height: 285px;
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.w3-button:hover {
+    color: #000 !important;
+    background-color: white !important;
+}
+/* tooltip css */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 120%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* hover gif css animation */
+.static {
+  position:absolute;
+  background: white;
+  width:30px;
+  height:30px;
+}
+
+.static:hover {
+  opacity:0;
+  width:30px;
+  height:30px;
+}
+
+/* Circular progress bar */
+.progressbar {
+    display: inline-block;
+}
+
+.circle {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.circle canvas {
+  width: 50px !important;
+  height: 50px !important;
+  vertical-align: middle;
+}
+
+.circle div {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: auto;
+    text-align: center;
+    line-height: 10px;
+    font-size: 10px;
+    color: yellow;
+}
+
+.circle strong i {
+  font-style: normal;
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.circle span {
+  display: block;
+  color: #aaa;
+  margin-top: 12px;
+}
+
+.container
+{
+  position:relative;
+  width:300px;
+  display:flex;
+  justify-content:space-around;
+}
+.container .card {
+    position: relative;
+    /* width: auto; */
+    background: linear-gradient(0deg,#1b1b1b,#222,#1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 300px; */
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.container .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgb(157 210 236 / 38%);
+}
+.container .card:before
+{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-50%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,.03);
+  pointer-events:none;
+  z-index:1;
+}
+.percent
+{
+  position:relative;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  box-shadow: inset 0 0 50px #000;
+  background:#222;
+  z-index:1000;
+}
+.percent .num
+{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+}
+.percent .num h2
+{
+  color:#777;
+  font-weight:700;
+  font-size:40px;
+  transition:0.5s;
+}
+.card:hover .percent .num h2
+{
+  color:#fff;
+  font-size:60px;
+}
+.percent .num h2 span
+{
+  color:#777;
+  font-size:24px;
+  transition:0.5s;
+}
+.card:hover .percent .num h2 span
+{
+  color:#fff;
+}
+.text {
+    position: relative;
+    color: #777;
+    margin-top: 1px;
+    font-weight: 700;
+    font-size: 18px;
+    /* letter-spacing: 1px; */
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.card:hover .text
+{
+  color:#fff;
+}
+/* End of Circular progress bar */
+
+/* PROGRESS BAR */
+.wrapper {
+  margin-top:0px;
+}
+
+.percentage {
+  padding: 5px 0;
+  opacity: 1;
+}
+
+.animation {
+  width: 100%;
+  max-width: 860px;
+  height: 16px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.animation-bar {
+  display: block;
+  height: 100%;
+  width:0;
+  background: linear-gradient(
+    90deg,
+    #ffd33d,
+    #ea4aaa 17%,
+    #b34bff 34%,
+    #01feff 51%,
+    #ffd33d 68%,
+    #ea4aaa 85%,
+    #b34bff
+  );
+  position: relative;
+  background-size: 300% 100%;
+  -webkit-animation: animation-bar 2s linear infinite;
+          animation: animation-bar 2s linear infinite;
+  -webkit-transition: all 0.9s ease-out;
+          transition: all 0.9s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0px);
+  animation: come-in 0.8s ease forwards;
+  -webkit-transition: all 0.9s ease-out;
+  transition: all 0.9s ease-out;
+}
+.come-in:nth-child(odd) {
+  animation-duration: 0.6s; /* So they look staggered */
+}
+
+@keyframes animation-bar {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+come-in {
+  to {
+    transform: translateY(0px);
+  }
+}
+.p100 {
+  width: 100%;
+}
+.p95 {
+  width: 95%;
+}
+.p90 {
+  width: 90%;
+}
+.p80 {
+  width: 80%;
+}
+.p85 {
+  width: 85%;
+}
+.p75 {
+  width: 75%;
+}
+.p70 {
+  width: 70%;
+}
+.p65 {
+  width: 65%;
+}
+.p60 {
+  width: 60%;
+}
+.p55 {
+  width: 55%;
+}
+.p50 {
+  width: 50%;
+}
+/* END PROGRESS BAR */
+</style>
+
+<body class="w3-light-grey w3-content" style="max-width:1700px; background-image:url(media/photo1.jpg); background-blend-mode: darken;">
+<!-- #b9c6f13b BODY COLOR NEW -->
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-black w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+      <!-- circular progress bar -->
+      <div id="skilllevel" style="width:290px; height:110px">
+        <a  href="index.html"><img src="media\image.png" style="width:40%; float:'left'; display: block;" class="w3-round" id="profileimage"></a>
+           <!-- circular progress bar -->
+           <span style="color:white; width:100px; display: none;" id="skillpercent">
+                      <!-- <img src="https://img.icons8.com/color/48/000000/php-designer.png" style="width:25%; float:'left';" class="w3-round"> -->
+                <div class="container" style="width:100px; margin-top:10px;">
+                  <div class="card" style="width:100px;height:100px;">
+                    <div class="box">
+                      <div class="percent" style="margin:auto;width:50px;height:50px;">
+                        <div class="progressbar" data-animate="false" style="margin:0px; width:50px; height:50px;">
+                          <div class="circle" id="circle" data-percent="50" style="margin-top: 0px; width:50px;height:50px;">
+
+                            <div class="text" style="margin-top: 0px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <h2 class="text" id="skilllevels"></h2>
+                  </div>
+                </div>
+              </div>
+            </span>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="https://rawgit.com/kottenator/jquery-circle-progress/1.2.1/dist/circle-progress.js"></script>
+            <!-- <script src="scripts/index.js"></script> -->
+         <!-- end of circular bar -->
+         </div>
+    <!-- end of circular bar -->
+      <!-- <br><br> -->
+      <!-- Menu bar-->
+    <h4 style="font-size:15px;"><b>Technical Profile</b></h4>
+    <div class="w3-bottombar" style="width:110px;"></div>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><img src="media\icons8-diploma-94.png" style="width:30px;height:30px;"/></i> CERTIFICATE</a>
+    <a href="index.html#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><img src="media\icons8-info-94.png" style="width:30px;height:30px;"/></i> ABOUT</a>
+    <a href="index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><img src="media\icons8-office-phone-94.png" style="width:30px;height:30px;"/></i> CONTACT</a>
+      <!--    <a href="{% url 'logout' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><img src="{% static '/assets/local/icons/logout-button.png' %}" style="width:30px;height:30px;"/></i> LOGOUT</a>-->
+  </div>
+  <div class="w3-panel w3-large">
+    <a  href="mailto:EmailAddress@.XYZ.com" target="_blank"><i><img src="media\icons8-linkedin-94.png"  style="width:30px;height:30px;"/></i></a>
+    <a  href="https://github.com/Christine-97" target="_blank"><i><img  class="active" src="media\icons8-github-94.png" style="width:30px;height:30px;"/></i></a>
+    <a  href="https://www.linkedin.com/in/christine-polly-paul-57b89b214" target="_blank"><i><img  class="active" src="media\icons8-gmail-logo-94.png" style="width:30px;height:30px;"/></i></a>
+  </div>
+</nav>
+     <!-- End Menu bar-->
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;">
+
+  <!-- Header -->
+  <header id="portfolio" style="font-color:white;">
+    <a href="index.html"><img src="media\icons8-info-94.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h2 style="font-size:25px;padding-top:10px;"><b>My Certifications</b></h2>
+    <div class="w3-bottombar" style="width:212px;"></div>
+    <div class="w3-section w3-padding">
+    <div><div class="w3-margin-right" style="font-size:15px;padding-bottom:2px;"><b>Filter:</b></div></div>
+    <div class="button-container">
+    <!-- Fliter search button to get all cards  -->
+      <button class="w3-button w3-black button-icon-containe cards" id="cards" value="ALL" onclick="Searchbutton('ALL')">
+        <img src="https://img.icons8.com/fluent/48/000000/show-all-views.png" style="width:30px;height:30px;"/><img /></button>
+        <div class="button-text-container">
+          <span>ALL</span>
+        </div>
+    </div>
+    <!-- Fliter search buttons -->
+        <div class="button-container">
+          <button class="w3-button w3-white w3-hide-small button-icon-container cards" id="python" value="python" onclick="Searchbutton('{{i.Language}}')">
+            <img class="active" src="Languages_gif\Python.gif" style="width:30px;height:30px;"/></img>
+            <img class="static" src="media\Python.png" style="width:30px;height:30px;"/>
+          </button>
+          <div class="button-text-container">
+            <span>Python</span>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="w3-button w3-white w3-hide-small button-icon-container cards" id="aws" value="aws" onclick="Searchbutton('{{i.Language}}')">
+            <img class="active" src="Languages_gif\AWS.png" style="width:30px;height:30px;"/></img>
+            <img class="static" src="Languages_gif\AWS.png" style="width:30px;height:30px;"/>
+          </button>
+          <div class="button-text-container">
+            <span>AWS</span>
+          </div>
+        </div>	
+        <div class="button-container">
+          <button class="w3-button w3-white w3-hide-small button-icon-container cards" id="django" value="django" onclick="Searchbutton('{{i.Language}}')">
+            <img class="active" src="Languages_gif\icons8-django-48.png" style="width:30px;height:30px;"/></img>
+            <img class="static" src="Languages_gif\icons8-django-48.png" style="width:30px;height:30px;"/>
+          </button>
+          <div class="button-text-container">
+            <span>Django</span>
+          </div>
+        </div>		
+        <div class="button-container">
+          <button class="w3-button w3-white w3-hide-small button-icon-container cards" id="gcp" value="gcp" onclick="Searchbutton('{{i.Language}}')">
+            <img class="active" src="Languages_gif\icons8-google-cloud-48.png" style="width:30px;height:30px;"/></img>
+            <img class="static" src="media\icons8-google-cloud-platform-48.png" style="width:30px;height:30px;"/>
+          </button>
+          <div class="button-text-container">
+            <span>GCP</span>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="w3-button w3-white w3-hide-small button-icon-container cards" id="SQL" value="SQL" onclick="Searchbutton('{{i.Language}}')">
+            <img class="active" src="Languages_gif\icons8-database.gif" style="width:30px;height:30px;"/></img>
+            <img class="static" src="media\icons8-database-administrator-48.png" style="width:30px;height:30px;"/>
+          </button>
+          <div class="button-text-container">
+            <span>SQL</span>
+          </div>
+        </div>		
+    </div>
+    </br>
+    </br>
+    </div>
+  </br>
+    <div class="w3-bottombar">
+  </header>
+</br>
+
+<!-- <div id="allpost"> -->
+  <!-- All Cards-->
+<div class="w3-row-padding allcards" id="ALL_Category">
+  <div id="allpost">
+  
+    <div class="w3-third w3-container flip-box">
+      <div class="w3-margin-bottom w3-white flip-box-inner" style="width:auto;height:auto;">
+        <div class="w3-container w3-white flip-box-front">
+          <img src="certificate\htmljscss.jpg" alt="{{i.Name}}" style="padding-top: 10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+          <div class="w3-container w3-white" style="text-align:left; padding-bottom:10px;">
+            <p><b>Programming foundations with JS, HTML & CSS</b></p>
+            <p>by Duke University</p>
+          </div>
+        </div>
+        <div class="w3-container w3-white flip-box-back">
+          <img src="certificate\htmljscss.jpg" alt="{{i.Name}}" style="padding-top:10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+         <div class="w3-container w3-white" style="text-align:center;padding-bottom:5px;">
+          <p style="text-align:left;"><b>Certificate details: </b></p>
+           <p>
+              <div class="tooltip"><img src="https://img.icons8.com/fluent/64/000000/online-coding.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">HTML,JS,CSS</span>
+              </div>
+              <div class="tooltip">
+              <img src="media\icons8-laptop-coding-96.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">COURSERA</span>
+              </div>
+              <div class="tooltip">
+              <img src="media\certificate.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">Certification</span>
+              </div>
+              <div class="tooltip"><a href="{{i.Link}}" target="_blank">
+              <img src="https://img.icons8.com/fluent/80/000000/link.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">Verification Link</span></a>
+              </div>
+           </p>
+         </div>
+        </div>
+     </div>
+   </div>
+ <div class="w3-third w3-container flip-box">
+      <div class="w3-margin-bottom w3-white flip-box-inner" style="width:auto;height:auto;">
+        <div class="w3-container w3-white flip-box-front">
+          <img src="certificate\aws.jpg" alt="{{i.Name}}" style="padding-top: 10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+          <div class="w3-container w3-white" style="text-align:left; padding-bottom:10px;">
+            <p><b>AWS Cloud Techincal Essentials</b></p>
+            <p>by AWS</p>
+          </div>
+        </div>
+        <div class="w3-container w3-white flip-box-back">
+          <img src="certificate\aws.jpg" alt="{{i.Name}}" style="padding-top:10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+         <div class="w3-container w3-white" style="text-align:center;padding-bottom:5px;">
+          <p style="text-align:left;"><b>Certificate details: </b></p>
+           <p>
+              <div class="tooltip"><img src="https://img.icons8.com/fluent/64/000000/online-coding.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">AWS</span>
+              </div>
+              <div class="tooltip">
+              <img src="media\icons8-laptop-coding-96.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">COURSERA</span>
+              </div>
+              <div class="tooltip">
+              <img src="media\certificate.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">Certification</span>
+              </div>
+              <div class="tooltip"><a href="{{i.Link}}" target="_blank">
+              <img src="https://img.icons8.com/fluent/80/000000/link.png" style="width:45px;height:45px;"/>
+                <span class="tooltiptext">Verification Link</span></a>
+              </div>
+           </p>
+         </div>
+        </div>
+     </div>
+   </div>
+
+</div>
+</div>
+  <div class="w3-bottombar">
+  </div>
+</br>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+
+  <div id="skills" class="w3-container w3-padding-medium" style="margin-bottom:32px">
+    <h2 style="font-size:25px;padding-top:10px;"><b>My Skills</b></h2>
+    <div class="w3-bottombar" style="width:115px;"></div>
+    <!-- Progress bars / Skills -->
+    <!-- <hr class="w3-opacity"> -->
+      <p class="w3-wide"><b>Project Management</b></p>
+    <div class="wrapper">
+    <div class="percentage" data-percentage="80">
+      <div class="animation">
+         <div class="animation-bar"></div>
+      </div>
+    </div>
+
+      <p class="w3-wide"><b>Cloud Developer</b></p>
+      <div class="percentage" data-percentage="65">
+        <div class="animation">
+           <div class="animation-bar"></div>
+        </div>
+      </div>
+
+
+    <p class="w3-wide"><b>Website Development</b></p>
+    <div class="percentage" data-percentage="75">
+      <div class="animation">
+         <div class="animation-bar"></div>
+      </div>
+    </div>
+  </div>
+    <a href="https://drive.google.com/uc?export=download&id=1jKPFMC9xqMgPJGzTyE3EPJLShklXfI8C">
+      <button class="resume-button w3-button w3-light-grey w3-padding-large w3-margin-top">
+        <i class="fa fa-download"></i> Download Resume
+      </button></a>
+    </p>
+    <!-- <hr> -->
+</br></br></br>
+    <div class="w3-bottombar">
+    </div>
+  </br>
+</br>
+  <!-- Footer -->
+    <footer class="w3-black w3-center w3-padding-24">
+      <a href="https://www.linkedin.com/in/christine-polly-paul-57b89b214" title="linkedin" target="_blank" class="w3-hover-opacity"><i><img  class="active" src="media\icons8-linkedin-94.png" style="width:width:55px;height:55px;"/></i></a>
+      <a href="https://github.com/Christine-97" title="github" target="_blank" class="w3-hover-opacity"><i><img  class="active" src="media\icons8-github-94.png" style="width:width:55px;height:45px;"/></i></a>
+      <a href="mailto:christinemarypolly97@gmail.com" title="mail" target="_blank" class="w3-hover-opacity"><i><img src="media\icons8-gmail-logo-94.png" style="width:width:55px;height:45px;"/></i></a>
+      <!-- <i><img class="active" src="https://img.icons8.com/color/48/000000/linkedin-2--v2.png"/></i> -->
+      <p class="w3-small">Developed by <a href="https://github.com/Christine-97" title="github" target="_blank" class="w3-hover-opacity">Christine</a></p>
+    <!-- End footer -->
+    </footer>
+  </div>
+<!-- End page content -->
+</div>
+
+<script>
+// progress bar
+$(document).ready(function() {
+  var Animation = function(animationBar, percentage) {
+
+    this.animationBar = animationBar;
+    this.percentage = percentage;
+    this.animationArray = null;
+    this.animationOffset = null;
+    this.labelArray = null;
+    this.percentageArray = null;
+    this.index = 0;
+
+    this.initialize();
+
+  };
+
+  Animation.prototype.initialize = function() {
+
+    this.animationArray = document.getElementsByClassName(this.percentage);
+
+    if (this.animationOffset === null)
+      this.animationOffset = [];
+
+    if (this.labelArray === null)
+      this.labelArray = [];
+
+    if (this.percentageArray === null)
+      this.percentageArray = [];
+
+    this.setUpElements();
+
+  };
+
+  Animation.prototype.setUpElements = function() {
+
+    for (var i = 0; i < this.animationArray.length; i++) {
+      var elem = this.animationArray[i],
+        offset = elem.offsetTop + document.getElementsByClassName(this.percentage)[0].clientHeight,
+        percentage = $(this.animationArray[i]).data(this.percentage);
+
+      this.animationOffset.push(offset);
+      this.percentageArray.push(percentage);
+
+      $(this.animationArray[i]).find('.label').html('Percentage: ' + percentage + '%');
+    }
+
+    this.attachListeners();
+  }
+
+  Animation.prototype.attachListeners = function() {
+
+    $(window).on('scroll', this.onWindowScroll.bind(this));
+  };
+
+  Animation.prototype.onWindowScroll = function() {
+
+    for (var i = 0; i < this.animationArray.length; i++) {
+      if (window.pageYOffset >= this.animationOffset[this.index] - window.innerHeight) {
+        this.showElement();
+        this.index++;
+      } else
+        return;
+    }
+  };
+
+  Animation.prototype.showElement = function() {
+    var element = document.getElementsByClassName(this.percentage)[this.index];
+    element.className += ' show';
+    this.animateBar(element, this.percentageArray[this.index]);
+  }
+
+  Animation.prototype.animateBar = function(element, width) {
+
+    var $element = $(element),
+      className = ' p' + width;
+
+    $element.find(this.animationBar).addClass(className);
+  }
+
+  new Animation('.animation-bar', 'percentage');
+
+});
+// end of progress bar
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// search button function
+function Searchbutton(element){
+  const listingbox = document.getElementById('allpost');
+  const searchdata = '{{searchtext.qs_json}}';
+  console.log(searchdata);
+  var count = 0;
+  let rdata = JSON.parse(searchdata.replace(/&quot;/g,'"'));
+  // sort alphabetically
+  rdata = rdata.sort((a,b)=>{
+    a = a.Name.toLowerCase();
+    b = b.Name.toLowerCase();
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
+  // console.log(rdata); FLiter aLl cards
+  var input = element;
+  if(input == 'ALL'){
+  // console.log(input);
+  listingbox.innerHTML = "";
+  filteredArr = [];
+  filteredArr = rdata
+  // display the sorted cards
+      if (filteredArr.length > 0){
+        filteredArr.map(info=>{
+          count +=1;
+              listingbox.innerHTML += `<div class="w3-third w3-container flip-box">
+                    <div class="w3-margin-bottom w3-white flip-box-inner" style="width:auto;height:auto;">
+                      <div class="w3-container w3-white flip-box-front">
+                        <img src="https://drive.google.com/uc?export=view&id=${info.certificate_image_id}" alt="${info.Name}" style="padding-top: 10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+                        <div class="w3-container w3-white" style="text-align:left; padding-bottom:10px;">
+                          <p><b>${info.Name}</b></p>
+                          <p>by ${info.provided_by}</p>
+                        </div>
+                      </div>
+                      <div class="w3-container w3-white flip-box-back">
+                        <img src="https://drive.google.com/uc?export=view&id=${info.certificate_image_id}" alt="${info.Name}" style="padding-top:10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+                       <div class="w3-container w3-white" style="text-align:center;  padding-bottom:5px;">
+                         <p style="text-align:left;"><b>Certificate details: </b>
+                            <div class="tooltip"><img src="https://img.icons8.com/fluent/64/000000/online-coding.png" style="width:45px;height:45px;"/>
+                              <span class="tooltiptext">${info.Languages}</span>
+                            </div>
+                            <div class="tooltip">
+                            <img src="/media/Platform/icons8-laptop-coding-96.png" style="width:45px;height:45px;"/>
+                              <span class="tooltiptext">${info.Platform}</span>
+                            </div>
+                            <div class="tooltip">
+                            <img src="https://drive.google.com/uc?export=view&id=${info.TypeofAchievement}" style="width:45px;height:45px;"/>
+                              <span class="tooltiptext">${info.TypeofAchievement_name}</span>
+                            </div>
+                            <div class="tooltip"><a href="${info.Link}" target="_blank">
+                            <img src="https://img.icons8.com/fluent/80/000000/link.png" style="width:45px;height:45px;"/>
+                              <span class="tooltiptext">Verification Link</span></a>
+                            </div>
+                         </p>
+                       </div>
+                      </div>
+                   </div>`
+          })
+        };
+        document.getElementById("profileimage").style.display = "block";
+        document.getElementById("skillpercent").style.display = "none";
+  }else{
+  listingbox.innerHTML = "";
+  filteredArr = [];
+  filteredArr = rdata.filter(info=>(info['Languages']).includes((input))); //fliter from input
+  // sort alphabetically
+  filteredArr = filteredArr.sort((a,b)=>{
+    a = a.Name.toLowerCase();
+    b = b.Name.toLowerCase();
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
+  // circular progress bar function
+    function animateElements(percentval) {
+      $('.progressbar').each(function() {
+        var elementPos = $(this).offset().top;
+        var topOfWindow = $(window).scrollTop();
+        var percent = percentval;
+        var animate = $(this).data('animate');
+        if (elementPos < topOfWindow + $(window).height() - 30 && !animate) {
+          $(this).data('animate', true);
+          $(this).find('.circle').circleProgress({
+            startAngle: -Math.PI / 2,
+            value: percent / 100,
+            thickness: 14,
+            fill: {
+              color: '#216bf3'
+            }
+          }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('div').text((stepValue * 100).toFixed(1) + "%");
+          }).stop();
+          $(this).data('animate', false);
+        }
+      });
+    };
+  // display the sorted cards
+  if (filteredArr.length > 0){
+    filteredArr.map(info=>{
+      count +=1;
+          listingbox.innerHTML += `<div class="w3-third w3-container flip-box">
+                <div class="w3-margin-bottom w3-white flip-box-inner" style="width:auto;height:auto;">
+                  <div class="w3-container w3-white flip-box-front">
+                    <img src="https://drive.google.com/uc?export=view&id=${info.certificate_image_id}" alt="${info.Name}" style="padding-top: 10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+                    <div class="w3-container w3-white" style="text-align:left; padding-bottom:10px;">
+                      <p><b>${info.Name}</b></p>
+                      <p>by ${info.provided_by}</p>
+                    </div>
+                  </div>
+                  <div class="w3-container w3-white flip-box-back">
+                    <img src="https://drive.google.com/uc?export=view&id=${info.certificate_image_id}" alt="${info.Name}" style="padding-top:10px;width:240px;height:175px;" class="w3-hover-opacity" onclick="onClick(this)">
+                   <div class="w3-container w3-white" style="text-align:center;  padding-bottom:5px;">
+                     <p style="text-align:left;"><b>Certificate details: </b>
+                        <div class="tooltip"><img src="https://img.icons8.com/fluent/64/000000/online-coding.png" style="width:45px;height:45px;"/>
+                          <span class="tooltiptext">${info.Languages}</span>
+                        </div>
+                        <div class="tooltip">
+                        <img src="/media/Platform/icons8-laptop-coding-96.png" style="width:45px;height:45px;"/>
+                          <span class="tooltiptext">${info.Platform}</span>
+                        </div>
+                        <div class="tooltip">
+                        <img src="https://drive.google.com/uc?export=view&id=${info.TypeofAchievement_id}" style="width:45px;height:45px;"/>
+                          <span class="tooltiptext">${info.TypeofAchievement_name}</span>
+                        </div>
+                        <div class="tooltip"><a href="${info.Link}" target="_blank">
+                        <img src="https://img.icons8.com/fluent/80/000000/link.png" style="width:45px;height:45px;"/>
+                          <span class="tooltiptext">Verification Link</span></a>
+                        </div>
+                     </p>
+                   </div>
+                  </div>
+               </div>`
+      })
+    };
+    document.getElementById("profileimage").style.display = "none";
+    document.getElementById("skillpercent").style.display = "block";
+    const skillbox = document.getElementById('skilllevels');
+    skillbox.innerHTML ="";
+    skillbox.innerHTML = `<h2 class="text" id="skilllevels" style="margin-top: 5px;font-size:10px;">`+input+`</h2>`
+
+    // circular progress bar & count calculations
+    if(count > 0 && count <= 5){
+      count = count + 4;
+      count = count*10;
+    }else if(count >= 10 ){
+      count = 95;
+    }else{
+      count = count*10;
+    };
+    // Show animated elements
+    animateElements(count);
+  };
+};
+
+</script>
+</body>
+</html>
