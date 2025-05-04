@@ -584,20 +584,83 @@ ion-icon {
 <!--BLOGS-->
 
 /* MEDIUM BLOGS EMBED	 */
-#medium-feed ul {
-    list-style-type: none;
-    padding-left: 0;
+
+  .medium-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
   }
 
-  #medium-feed li {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+  .card {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: white;
+    position: relative;
   }
 
-  #medium-feed a:hover {
-    text-decoration: underline;
+  .tag {
+    position: absolute;
+    background: orange;
+    color: white;
+    top: 0;
+    left: 0;
+    padding: 4px 10px;
+    font-weight: bold;
+    z-index: 2;
   }
+
+  .card-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+
+  .card-content h3 a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .author {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .author span {
+    color: #f90;
+    font-weight: bold;
+  }
+
+  .desc {
+    font-size: 14px;
+    color: #333;
+  }
+	
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link:hover .card {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
 
 /* END OF MEDIUM BLOGS EMBED	 */
 </style>
@@ -767,29 +830,33 @@ ion-icon {
 </br>
 	   <!-- MEDIUM BLOGS SITE --> 
 <!-- Medium Feed Section -->
-<h2>Latest Posts by Christine Polly Paul</h2>
-<div id="medium-feed"></div>
+<div class="medium-cards" id="medium-feed"></div>
 
-<!-- jQuery and RSS2JSON Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   const feedURL = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@christine_polly_paul";
 
   $.get(feedURL, function(data) {
-    let html = "<ul>";
-    data.items.slice(0, 5).forEach(post => {
-      html += `
-        <li style="margin-bottom: 10px;">
-          <a href="${post.link}" target="_blank" style="font-weight:bold; text-decoration:none; color:#00ab6c;">
-            ${post.title}
-          </a><br>
-          <small>${new Date(post.pubDate).toDateString()}</small>
-        </li>
-      `;
-    });
-    html += "</ul>";
-    $("#medium-feed").html(html);
-  });
+    let html = "";
+    data.items.slice(0, 3).forEach(post => {
+      const tag = post.categories[0] || "Article";
+      const thumbnail = post.thumbnail || 'https://via.placeholder.com/600x400';
+      const snippet = post.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + "...";
+
+    
+   html += `
+  <a href="${post.link}" target="_blank" class="card-link">
+    <div class="card">
+      <div class="tag">${tag.toUpperCase()}</div>
+      <img src="${thumbnail}" alt="Post Image" class="card-img">
+      <div class="card-content">
+        <h3>${post.title}</h3>
+        <p class="author">By <span>${post.author}</span></p>
+        <p class="desc">${snippet}</p>
+      </div>
+    </div>
+  </a>
+`;
 </script>
 
 
