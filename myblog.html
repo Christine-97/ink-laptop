@@ -748,11 +748,20 @@ ion-icon {
   </div>
 </br>
 	   <!-- MEDIUM BLOGS SITE --> 
-<a href="https://medium.com/@christine_polly_paul" target="_blank" style="text-decoration: none;">
-  <button style="padding: 10px 20px; font-size: 16px; background-color: #00ab6c; color: white; border: none; border-radius: 5px;">
-    Read on Medium
-  </button>
-</a>
+<div id="medium-feed"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $.get("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@christine_polly_paul", function(data) {
+    let html = "<ul>";
+    data.items.slice(0, 5).forEach(post => {
+      html += `<li><a href="${post.link}" target="_blank">${post.title}</a></li>`;
+    });
+    html += "</ul>";
+    $("#medium-feed").html(html);
+  });
+</script>
+
 
     <!-- <hr> -->
 </br></br></br>
