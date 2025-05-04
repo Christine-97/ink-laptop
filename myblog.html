@@ -582,6 +582,24 @@ ion-icon {
 }
 
 <!--BLOGS-->
+
+/* MEDIUM BLOGS EMBED	 */
+#medium-feed ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  #medium-feed li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+
+  #medium-feed a:hover {
+    text-decoration: underline;
+  }
+
+/* END OF MEDIUM BLOGS EMBED	 */
 </style>
 
 <body class="w3-light-grey w3-content" style="max-width:1700px; background-image:url(media/photo1.jpg); background-blend-mode: darken;">
@@ -748,19 +766,32 @@ ion-icon {
   </div>
 </br>
 	   <!-- MEDIUM BLOGS SITE --> 
+<!-- Medium Feed Section -->
+<h2>Latest Posts by Christine Polly Paul</h2>
 <div id="medium-feed"></div>
 
+<!-- jQuery and RSS2JSON Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $.get("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@christine_polly_paul", function(data) {
+  const feedURL = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@christine_polly_paul";
+
+  $.get(feedURL, function(data) {
     let html = "<ul>";
     data.items.slice(0, 5).forEach(post => {
-      html += `<li><a href="${post.link}" target="_blank">${post.title}</a></li>`;
+      html += `
+        <li style="margin-bottom: 10px;">
+          <a href="${post.link}" target="_blank" style="font-weight:bold; text-decoration:none; color:#00ab6c;">
+            ${post.title}
+          </a><br>
+          <small>${new Date(post.pubDate).toDateString()}</small>
+        </li>
+      `;
     });
     html += "</ul>";
     $("#medium-feed").html(html);
   });
 </script>
+
 
 
     <!-- <hr> -->
